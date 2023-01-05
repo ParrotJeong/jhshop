@@ -266,6 +266,11 @@ function  calcPeriod(search_period){
 	<form action="${contextPath}/admin2/goods/addNewGoodsForm.do">
 		<input   type="submit" value="상품 등록하기">
 	</form>
+	<br>
+	<form action="${contextPath}/admin2/goods/excelUploadForm.do">
+		<input   type="submit" value="엑셀 상품 등록하기">
+	</form>
 </DIV>
+
 </body>
 </html>

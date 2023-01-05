@@ -134,9 +134,10 @@
 	    <scope>system</scope>
 	    <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ojdbc7.jar</systemPath>
       </dependency>
-     
-      
-      <dependency>
+
+
+
+        <dependency>
           <groupId>mysql</groupId>
           <artifactId>mysql-connector-java</artifactId>
           <version>5.1.29</version>
@@ -145,46 +146,64 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.8.0</version>
-        </dependency>      
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.2.2</version>
+            <version>1.9.4</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.1.0</version>
+            <version>3.2.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
         </dependency>
 
-<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-<!-- 오피스 파일을 자바 언어로 읽고 쓰는 기능을 사용하기 위한 라이브러리 -->
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi</artifactId>
-    <version>3.17</version>
-</dependency>
-<dependency>
-	<groupId>org.apache.poi</groupId>
-	<artifactId>poi-ooxml</artifactId>
-	<version>3.16</version>
-</dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.31</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
 
 
-<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-<!-- Java Object를 JSON으로 변환하거나 JSON을 Java Object로 변환하는데 사용하는 라이브러리 -->
-<!-- jackson-databind 라이브러리는 jackson-core 및 jackson-annotation 라이브러리의 의존성을 포함 -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.9.8</version>
-</dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-contrib</artifactId>
+            <version>3.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+            <version>3.9</version>
+        </dependency>
 
 
         <dependency><!-- sqlSessionFactory 만들때 없으면 에러남 -->
@@ -292,8 +311,29 @@
             <version>2.3.0</version>
         </dependency>        
         <!-- 추가e -->
-	
-	</dependencies>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
 	<!-- Jenkins에서 사용하는 부분 -->
 
       <profiles>
@@ -339,44 +379,7 @@
                              </plugin>
 
                         </plugins>
-
                   </build>
-
-
-
-
-
-                  <dependencies>
-
-                        <!-- Servlet -->
-
-                        <dependency>
-
-                             <groupId>javax.servlet</groupId>
-
-                             <artifactId>javax.servlet-api</artifactId>
-
-                             <version>3.0.1</version>
-
-                             <scope>provided</scope>
-
-                        </dependency>
-
-
-
-                        <dependency>
-
-                             <groupId>javax.servlet.jsp</groupId>
-
-                             <artifactId>jsp-api</artifactId>
-
-                             <version>2.0</version>
-
-                             <scope>provided</scope>
-
-                        </dependency>
-
-                  </dependencies>
 
             </profile>
 
@@ -413,9 +416,9 @@
             </plugin>
              <plugin>
 
-                        <artifactId>maven-war-plugin</artifactId>
-
-                        <version>3.0.0</version>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-war-plugin</artifactId>
+                 <version>3.3.2</version>
 
                         <configuration>
 
@@ -432,27 +435,6 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
-            <!-- Jenkins에서 사용하는 부분 -->
-
-                  <plugin>
-
-                        <groupId>org.codehaus.mojo</groupId>
-
-                        <artifactId>tomcat-maven-plugin</artifactId>
-
-                        <configuration>
-
-                             <url>http://localhost:8080/manager/text</url>
-
-                             <path>/guestbook</path>
-
-                             <username>admin</username>
-
-                             <password>manager</password>
-
-                        </configuration>
-
-                  </plugin>
         </plugins>
     </build>
     
