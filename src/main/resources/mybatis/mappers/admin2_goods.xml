@@ -259,5 +259,23 @@
 		]]>
 	</insert>
 
+	<select id="selectExcelfileinfoList" resultMap="goodsResult"     >
+	    <![CDATA[
+		SELECT
+			goods_id,
+			goods_title,
+			goods_isbn
+		from
+			t_shopping_goods
+		where
+			goods_isbn in
+			<foreach collection="list" item="goods_isbn" separator="," open="(" close=")">
+			#{goods_isbn}
+			</foreach>
+
+
+
+		]]>
+	</select>
 </mapper>
 

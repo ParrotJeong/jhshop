@@ -26,4 +26,9 @@ public class ExcelService {
         return result;
     }
 
+    public List selectExcelfileisbn(List goods_isbnList) throws Exception{
+        List isbnLIst =excelDAO.selectExcelfileinfo(goods_isbnList);
+        return isbnLIst;
+    }
+
 }

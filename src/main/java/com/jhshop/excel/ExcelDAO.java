@@ -1,9 +1,11 @@
 package com.jhshop.excel;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.jhshop.goods.vo.GoodsVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -29,5 +31,13 @@ public class ExcelDAO {
         }
         return result;
     }
+
+    public List<GoodsVO> selectExcelfileinfo(List goods_isbnList) throws DataAccessException {
+        HashMap<String,Object> map = new HashMap<String,Object>();
+        map.put("goods_isbnList",goods_isbnList);
+        return sqlSession.selectList("mapper.admin2.goods.selectExcelfileinfoList",goods_isbnList);
+    }
+
+
 
 }
